@@ -1,0 +1,55 @@
+/* Impostazioni di base per tutto il sito */
+body {
+  font-family: Arial, sans-serif; /* Font leggibile */
+  background-color: #f9f9f9;      /* Sfondo grigio chiaro */
+  color: #333;                    /* Testo grigio scuro */
+  margin: 0;                      /* Nessun margine attorno alla pagina */
+  padding: 0;
+}
+
+/* Intestazione del sito */
+header {
+  background-color: #ffe600;     /* Giallo tipo Pikachu! */
+  color: #000;                   /* Testo nero */
+  padding: 20px;
+  text-align: center;
+}
+
+/* Menu di navigazione */
+nav ul {
+  list-style-type: none;         /* Rimuove i puntini dell'elenco */
+  padding: 0;
+  margin: 10px 0 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;         /* Rimuove sottolineatura link */
+  color: #000;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #e60000;                /* Colore rosso al passaggio del mouse */
+}
+
+/* Sezioni principali */
+section {
+  padding: 40px 20px;
+  border-bottom: 1px solid #ddd; /* Righe divisorie tra sezioni */
+}
+
+/* Titoli delle sezioni */
+section h2 {
+  color: #444;
+}
+
+/* Piè di pagina */
+footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+}
