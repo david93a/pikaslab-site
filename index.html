@@ -5,18 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pikaslab - Il laboratorio nerd</title>
 
-  <!-- Favicon del sito -->
+  <!-- Favicon personalizzata -->
   <link rel="icon" type="image/png" href="favicon.png">
 
-  <!-- Icona per dispositivi Apple -->
-  <link rel="apple-touch-icon" href="favicon.png">
-
-
-
-  <!-- Collegamento al file CSS -->
+  <!-- Collegamento ai file di stile -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Font Awesome per le icone -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- Meta tag SEO base -->
@@ -75,7 +68,7 @@
     <h2><i class="fas fa-sliders-h"></i> Personalizza le Notizie</h2>
     <p>Scegli gli argomenti che vuoi vedere sul sito:</p>
 
-    <!-- Form con categorie selezionabili -->
+    <!-- Modulo con checkbox -->
     <form id="scelta-notizie">
       <label><input type="checkbox" name="categoria" value="tech"> Tecnologia</label><br>
       <label><input type="checkbox" name="categoria" value="giochi"> Videogiochi</label><br>
@@ -84,7 +77,7 @@
       <button type="button" onclick="mostraNotizie()">Mostra Notizie</button>
     </form>
 
-    <!-- Spazio per mostrare i contenuti dinamici -->
+    <!-- Contenitore per le notizie -->
     <div id="risultati-notizie"></div>
   </section>
 
@@ -93,42 +86,61 @@
     <p>&copy; 2025 Pikaslab - Tutti i diritti riservati.</p>
   </footer>
 
-  <!-- Script JavaScript per salvare e caricare le preferenze -->
+  <!-- Script JS per personalizzazione -->
   <script>
-    // Funzione per mostrare le notizie selezionate
+    // Funzione chiamata al clic su "Mostra Notizie"
     function mostraNotizie() {
       const selezionate = Array.from(document.querySelectorAll('input[name="categoria"]:checked'))
                                 .map(cb => cb.value);
-
       localStorage.setItem('categoriePreferite', JSON.stringify(selezionate));
-      aggiornaNotizie();
+      caricaNotizieDaJSON();
     }
 
-    // Funzione che aggiorna il contenuto in base alle scelte salvate
-    function aggiornaNotizie() {
-      const container = document.getElementById('risultati-notizie');
-      container.innerHTML = "";
+    // Carica le notizie filtrate da notizie.json
+    async function caricaNotizieDaJSON() {
+      try {
+        const response = await fetch("data/notizie.json");
+        const notizie = await response.json();
+        const categorie = JSON.parse(localStorage.getItem('categoriePreferite')) || [];
+        const container = document.getElementById("risultati-notizie");
+        container.innerHTML = "";
 
-      const salvate = JSON.parse(localStorage.getItem('categoriePreferite')) || [];
+        if (categorie.length === 0) {
+          container.innerHTML = "<p>Nessuna categoria selezionata.</p>";
+          return;
+        }
 
-      if (salvate.length === 0) {
-        container.innerHTML = "<p>Nessuna categoria selezionata.</p>";
-        return;
+        const filtrate = notizie.filter(n => categorie.includes(n.categoria));
+
+        if (filtrate.length === 0) {
+          container.innerHTML = "<p>Nessuna notizia trovata per le categorie selezionate.</p>";
+          return;
+        }
+
+        filtrate.forEach(n => {
+          const articolo = document.createElement("div");
+          articolo.innerHTML = `<h3>${n.titolo}</h3><p><small>${n.data}</small> – <a href="${n.link}">Leggi di più</a></p>`;
+          container.appendChild(articolo);
+        });
+
+      } catch (error) {
+        console.error("Errore nel caricamento notizie:", error);
+        document.getElementById("risultati-notizie").innerHTML = "<p>Errore nel caricamento delle notizie.</p>";
       }
+    }
 
-      salvate.forEach(cat => {
-        const blocco = document.createElement("div");
-        blocco.innerHTML = `<h3>${cat.toUpperCase()}</h3><p>Contenuti e articoli relativi a "${cat}" appariranno qui.</p>`;
-        container.appendChild(blocco);
-      });
-
-      // Ripristina lo stato delle checkbox
+    // Carica le preferenze salvate e mostra le notizie se presenti
+    function aggiornaNotizie() {
+      const salvate = JSON.parse(localStorage.getItem('categoriePreferite')) || [];
       document.querySelectorAll('input[name="categoria"]').forEach(cb => {
         cb.checked = salvate.includes(cb.value);
       });
+      if (salvate.length > 0) {
+        caricaNotizieDaJSON();
+      }
     }
 
-    // Carica automaticamente le preferenze salvate all'avvio della pagina
+    // Avvia la funzione al caricamento della pagina
     window.addEventListener('DOMContentLoaded', aggiornaNotizie);
   </script>
 </body>
