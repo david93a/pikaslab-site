@@ -8,6 +8,9 @@
   <!-- Collegamento al file CSS -->
   <link rel="stylesheet" href="style.css">
 
+  <!-- Font Awesome per le icone -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <!-- Meta tag SEO base -->
   <meta name="description" content="Pikaslab - Notizie tech, carte collezionabili e strumenti per nerd">
   <meta name="robots" content="index, follow">
@@ -23,45 +26,45 @@
     <h1>Pikaslab</h1>
     <p>Il laboratorio nerd per notizie, carte e tecnologia</p>
 
-    <!-- Menu di navigazione -->
+    <!-- Menu di navigazione con icone -->
     <nav>
       <ul>
-        <li><a href="#notizie">Notizie</a></li>
-        <li><a href="#carte">Carte</a></li>
-        <li><a href="#offerte">Offerte</a></li>
-        <li><a href="#tool">Tool</a></li>
-        <li><a href="#notizie-personalizzate">Personalizza</a></li>
+        <li><a href="#notizie"><i class="fas fa-newspaper"></i> Notizie</a></li>
+        <li><a href="#carte"><i class="fas fa-layer-group"></i> Carte</a></li>
+        <li><a href="#offerte"><i class="fas fa-tags"></i> Offerte</a></li>
+        <li><a href="#tool"><i class="fas fa-wrench"></i> Tool</a></li>
+        <li><a href="#notizie-personalizzate"><i class="fas fa-sliders-h"></i> Personalizza</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Sezione Notizie -->
   <section id="notizie">
-    <h2>Ultime Notizie</h2>
+    <h2><i class="fas fa-newspaper"></i> Ultime Notizie</h2>
     <p>In futuro qui compariranno le ultime notizie dal mondo tech selezionate via RSS.</p>
   </section>
 
   <!-- Sezione Carte -->
   <section id="carte">
-    <h2>Carte Collezionabili</h2>
+    <h2><i class="fas fa-layer-group"></i> Carte Collezionabili</h2>
     <p>Analisi e valutazioni su carte Pokémon, Magic e non solo.</p>
   </section>
 
   <!-- Sezione Offerte -->
   <section id="offerte">
-    <h2>Offerte Amazon</h2>
+    <h2><i class="fas fa-tags"></i> Offerte Amazon</h2>
     <p>Una selezione delle migliori offerte per nerd e smanettoni.</p>
   </section>
 
   <!-- Sezione Tool -->
   <section id="tool">
-    <h2>Strumenti Utili</h2>
+    <h2><i class="fas fa-wrench"></i> Strumenti Utili</h2>
     <p>Prossimamente tool per YouTube, meteo, analisi prezzi e altro.</p>
   </section>
 
   <!-- Sezione Personalizzazione Notizie -->
   <section id="notizie-personalizzate">
-    <h2>Personalizza le Notizie</h2>
+    <h2><i class="fas fa-sliders-h"></i> Personalizza le Notizie</h2>
     <p>Scegli gli argomenti che vuoi vedere sul sito:</p>
 
     <!-- Form con categorie selezionabili -->
@@ -84,34 +87,27 @@
 
   <!-- Script JavaScript per salvare e caricare le preferenze -->
   <script>
-    // Mostra le notizie selezionate quando si clicca "Mostra Notizie"
+    // Funzione per mostrare le notizie selezionate
     function mostraNotizie() {
-      // Ottiene tutte le checkbox selezionate
       const selezionate = Array.from(document.querySelectorAll('input[name="categoria"]:checked'))
                                 .map(cb => cb.value);
 
-      // Salva le scelte nel localStorage del browser
       localStorage.setItem('categoriePreferite', JSON.stringify(selezionate));
-
-      // Chiama la funzione che aggiorna il contenuto
       aggiornaNotizie();
     }
 
-    // Mostra le notizie salvate alla visita successiva
+    // Funzione che aggiorna il contenuto in base alle scelte salvate
     function aggiornaNotizie() {
       const container = document.getElementById('risultati-notizie');
-      container.innerHTML = ""; // Pulisce il contenuto precedente
+      container.innerHTML = "";
 
-      // Legge le categorie salvate dal browser
       const salvate = JSON.parse(localStorage.getItem('categoriePreferite')) || [];
 
-      // Se non ci sono categorie salvate, mostra un messaggio
       if (salvate.length === 0) {
         container.innerHTML = "<p>Nessuna categoria selezionata.</p>";
         return;
       }
 
-      // Crea una sezione per ciascuna categoria selezionata
       salvate.forEach(cat => {
         const blocco = document.createElement("div");
         blocco.innerHTML = `<h3>${cat.toUpperCase()}</h3><p>Contenuti e articoli relativi a "${cat}" appariranno qui.</p>`;
@@ -124,7 +120,7 @@
       });
     }
 
-    // Esegue la funzione al caricamento della pagina
+    // Carica automaticamente le preferenze salvate all'avvio della pagina
     window.addEventListener('DOMContentLoaded', aggiornaNotizie);
   </script>
 </body>
