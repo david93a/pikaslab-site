@@ -9,7 +9,7 @@ body {
 
 /* Intestazione del sito */
 header {
-  background-color: #ffe600;     /* Giallo tipo Pikachu! */
+  background-color: #ffe600;     /* Giallo tipo Pikachu */
   color: #000;                   /* Testo nero */
   padding: 20px;
   text-align: center;
@@ -20,13 +20,13 @@ nav ul {
   list-style-type: none;         /* Rimuove i puntini dell'elenco */
   padding: 0;
   margin: 10px 0 0 0;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+  display: flex;                 /* Disposizione orizzontale */
+  justify-content: center;      /* Centra gli elementi */
+  gap: 20px;                     /* Spazio tra link */
 }
 
 nav a {
-  text-decoration: none;         /* Rimuove sottolineatura link */
+  text-decoration: none;         /* Rimuove sottolineatura */
   color: #000;
   font-weight: bold;
 }
@@ -38,7 +38,7 @@ nav a:hover {
 /* Sezioni principali */
 section {
   padding: 40px 20px;
-  border-bottom: 1px solid #ddd; /* Righe divisorie tra sezioni */
+  border-bottom: 1px solid #ddd; /* Riga divisoria sotto ogni sezione */
 }
 
 /* Titoli delle sezioni */
@@ -48,8 +48,57 @@ section h2 {
 
 /* Piè di pagina */
 footer {
-  background-color: #222;
-  color: #fff;
+  background-color: #222;       /* Sfondo scuro */
+  color: #fff;                  /* Testo chiaro */
   text-align: center;
   padding: 15px;
+}
+
+/* Sezione personalizzazione notizie */
+#notizie-personalizzate {
+  background-color: #fff3cd;    /* Giallo chiaro per evidenziare */
+  padding: 40px 20px;
+  border-top: 2px solid #ffe600;
+  border-bottom: 2px solid #000;
+}
+
+#notizie-personalizzate h3 {
+  color: #000;
+  margin-top: 20px;
+}
+
+/* Form checkbox per personalizzazione */
+#scelta-notizie label {
+  display: block;              /* Ogni opzione su una riga */
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+/* Pulsante */
+#scelta-notizie button {
+  background-color: #ffe600;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#scelta-notizie button:hover {
+  background-color: #ffcc00;
+}
+
+/* Responsive per schermi piccoli */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;     /* Link verticali su schermi piccoli */
+    gap: 10px;
+  }
+
+  section {
+    padding: 20px 10px;
+  }
+
+  #scelta-notizie button {
+    width: 100%;               /* Pulsante grande su mobile */
+  }
 }
