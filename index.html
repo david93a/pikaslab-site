@@ -4,14 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pikaslab - Il laboratorio nerd</title>
-  <!-- Collegamento al foglio di stile -->
+
+  <!-- Collegamento al file CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Meta tag SEO base -->
+  <meta name="description" content="Pikaslab - Notizie tech, carte collezionabili e strumenti per nerd">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Pikaslab - Il laboratorio nerd">
+  <meta property="og:description" content="Notizie, carte, offerte e strumenti per smanettoni.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.pikaslab.it">
 </head>
+
 <body>
   <!-- Intestazione del sito -->
   <header>
     <h1>Pikaslab</h1>
     <p>Il laboratorio nerd per notizie, carte e tecnologia</p>
+
     <!-- Menu di navigazione -->
     <nav>
       <ul>
@@ -19,6 +30,7 @@
         <li><a href="#carte">Carte</a></li>
         <li><a href="#offerte">Offerte</a></li>
         <li><a href="#tool">Tool</a></li>
+        <li><a href="#notizie-personalizzate">Personalizza</a></li>
       </ul>
     </nav>
   </header>
@@ -46,28 +58,74 @@
     <h2>Strumenti Utili</h2>
     <p>Prossimamente tool per YouTube, meteo, analisi prezzi e altro.</p>
   </section>
-  
-<!-- Sezione di personalizzazione notizie -->
-<section id="notizie-personalizzate">
-  <h2>Personalizza le Notizie</h2>
-  <p>Scegli gli argomenti che vuoi vedere sul sito:</p>
 
-  <!-- Form con le opzioni da selezionare -->
-  <form id="scelta-notizie">
-    <label><input type="checkbox" name="categoria" value="tech"> Tecnologia</label><br>
-    <label><input type="checkbox" name="categoria" value="giochi"> Videogiochi</label><br>
-    <label><input type="checkbox" name="categoria" value="carte"> Carte collezionabili</label><br>
-    <label><input type="checkbox" name="categoria" value="offerte"> Offerte</label><br><br>
-    <button type="button" onclick="mostraNotizie()">Mostra Notizie</button>
-  </form>
+  <!-- Sezione Personalizzazione Notizie -->
+  <section id="notizie-personalizzate">
+    <h2>Personalizza le Notizie</h2>
+    <p>Scegli gli argomenti che vuoi vedere sul sito:</p>
 
-  <!-- Contenitore che verrà riempito con le notizie selezionate -->
-  <div id="risultati-notizie"></div>
-</section>
+    <!-- Form con categorie selezionabili -->
+    <form id="scelta-notizie">
+      <label><input type="checkbox" name="categoria" value="tech"> Tecnologia</label><br>
+      <label><input type="checkbox" name="categoria" value="giochi"> Videogiochi</label><br>
+      <label><input type="checkbox" name="categoria" value="carte"> Carte collezionabili</label><br>
+      <label><input type="checkbox" name="categoria" value="offerte"> Offerte</label><br><br>
+      <button type="button" onclick="mostraNotizie()">Mostra Notizie</button>
+    </form>
+
+    <!-- Spazio per mostrare i contenuti dinamici -->
+    <div id="risultati-notizie"></div>
+  </section>
 
   <!-- Piè di pagina -->
   <footer>
     <p>&copy; 2025 Pikaslab - Tutti i diritti riservati.</p>
   </footer>
+
+  <!-- Script JavaScript per salvare e caricare le preferenze -->
+  <script>
+    // Mostra le notizie selezionate quando si clicca "Mostra Notizie"
+    function mostraNotizie() {
+      // Ottiene tutte le checkbox selezionate
+      const selezionate = Array.from(document.querySelectorAll('input[name="categoria"]:checked'))
+                                .map(cb => cb.value);
+
+      // Salva le scelte nel localStorage del browser
+      localStorage.setItem('categoriePreferite', JSON.stringify(selezionate));
+
+      // Chiama la funzione che aggiorna il contenuto
+      aggiornaNotizie();
+    }
+
+    // Mostra le notizie salvate alla visita successiva
+    function aggiornaNotizie() {
+      const container = document.getElementById('risultati-notizie');
+      container.innerHTML = ""; // Pulisce il contenuto precedente
+
+      // Legge le categorie salvate dal browser
+      const salvate = JSON.parse(localStorage.getItem('categoriePreferite')) || [];
+
+      // Se non ci sono categorie salvate, mostra un messaggio
+      if (salvate.length === 0) {
+        container.innerHTML = "<p>Nessuna categoria selezionata.</p>";
+        return;
+      }
+
+      // Crea una sezione per ciascuna categoria selezionata
+      salvate.forEach(cat => {
+        const blocco = document.createElement("div");
+        blocco.innerHTML = `<h3>${cat.toUpperCase()}</h3><p>Contenuti e articoli relativi a "${cat}" appariranno qui.</p>`;
+        container.appendChild(blocco);
+      });
+
+      // Ripristina lo stato delle checkbox
+      document.querySelectorAll('input[name="categoria"]').forEach(cb => {
+        cb.checked = salvate.includes(cb.value);
+      });
+    }
+
+    // Esegue la funzione al caricamento della pagina
+    window.addEventListener('DOMContentLoaded', aggiornaNotizie);
+  </script>
 </body>
 </html>
