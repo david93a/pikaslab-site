@@ -46,6 +46,24 @@
     <h2>Strumenti Utili</h2>
     <p>Prossimamente tool per YouTube, meteo, analisi prezzi e altro.</p>
   </section>
+  
+<!-- Sezione di personalizzazione notizie -->
+<section id="notizie-personalizzate">
+  <h2>Personalizza le Notizie</h2>
+  <p>Scegli gli argomenti che vuoi vedere sul sito:</p>
+
+  <!-- Form con le opzioni da selezionare -->
+  <form id="scelta-notizie">
+    <label><input type="checkbox" name="categoria" value="tech"> Tecnologia</label><br>
+    <label><input type="checkbox" name="categoria" value="giochi"> Videogiochi</label><br>
+    <label><input type="checkbox" name="categoria" value="carte"> Carte collezionabili</label><br>
+    <label><input type="checkbox" name="categoria" value="offerte"> Offerte</label><br><br>
+    <button type="button" onclick="mostraNotizie()">Mostra Notizie</button>
+  </form>
+
+  <!-- Contenitore che verrà riempito con le notizie selezionate -->
+  <div id="risultati-notizie"></div>
+</section>
 
   <!-- Piè di pagina -->
   <footer>
