@@ -5,196 +5,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pikaslab - Il laboratorio nerd</title>
 
-  <!-- Favicon personalizzata -->
-  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- Collegamento a Google Fonts per uno stile moderno -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Collegamento ai file di stile -->
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Favicon del sito -->
+  <link rel="icon" href="favicon.png" type="image/png">
+
+  <!-- Collegamento al foglio di stile esterno -->
+  <link rel="stylesheet" href="css/style.css">
 
   <!-- Meta tag SEO base -->
-  <meta name="description" content="Pikaslab - Notizie tech, carte collezionabili e strumenti per nerd">
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Pikaslab - Il laboratorio nerd">
-  <meta property="og:description" content="Notizie, carte, offerte e strumenti per smanettoni.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.pikaslab.it">
+  <meta name="description" content="Pikaslab - Offerte tech, carte collezionabili e strumenti per nerd">
 </head>
 
 <body>
-  <!-- Intestazione del sito -->
+  <!-- Header con titolo e menu orizzontale stile minimal -->
   <header>
-    <h1>Pikaslab</h1>
-    <p>Il laboratorio nerd per notizie, carte e tecnologia</p>
-
-    <!-- Menu di navigazione con icone -->
-    <nav>
-      <ul>
-        <li><a href="#notizie"><i class="fas fa-newspaper"></i> Notizie</a></li>
-        <li><a href="#carte"><i class="fas fa-layer-group"></i> Carte</a></li>
-        <li><a href="#offerte"><i class="fas fa-tags"></i> Offerte</a></li>
-        <li><a href="#tool"><i class="fas fa-wrench"></i> Tool</a></li>
-        <li><a href="#notizie-personalizzate"><i class="fas fa-sliders-h"></i> Personalizza</a></li>
-      </ul>
-    </nav>
+    <div class="container">
+      <h1 class="logo">Pikaslab</h1>
+      <nav>
+        <ul>
+          <li><a href="offerte.html">Offerte</a></li>
+          <li><a href="carte.html">Carte</a></li>
+          <li><a href="tool.html">Tool</a></li>
+          <li><a href="articoli.html">Articoli</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <!-- Sezione Notizie -->
-  <section id="notizie">
-    <h2><i class="fas fa-newspaper"></i> Ultime Notizie</h2>
-    <p>In futuro qui compariranno le ultime notizie dal mondo tech selezionate via RSS.</p>
-  </section>
+  <!-- Hero centrale di benvenuto -->
+  <main>
+    <section class="hero">
+      <h2>Il tuo laboratorio nerd</h2>
+      <p>Scopri offerte tech, carte rare, strumenti utili e articoli sempreverdi. Tutto con stile.</p>
+    </section>
 
-  <!-- Sezione Carte -->
-  <section id="carte">
-    <h2><i class="fas fa-layer-group"></i> Carte Collezionabili</h2>
-    <p>Analisi e valutazioni su carte Pokémon, Magic e non solo.</p>
-  </section>
+    <!-- Sezione centrale a box colorati -->
+    <section class="hub">
+      <div class="hub-grid">
 
-  <!-- Sezione Offerte -->
-  <section id="offerte">
-    <h2><i class="fas fa-tags"></i> Offerte Amazon</h2>
-    <p>Una selezione delle migliori offerte per nerd e smanettoni.</p>
-  </section>
+        <!-- Box 1: Offerte -->
+        <a href="offerte.html" class="hub-box ciano">
+          <h3>Top Offerte</h3>
+          <p>Scopri le migliori occasioni tech della settimana.</p>
+        </a>
 
-  <!-- Sezione Top 5 Gadget Nerd -->
-<section id="top5">
-  <!-- Titolo principale della sezione -->
-  <h2><i class="fas fa-star"></i> Top 5 Gadget da Nerd</h2>
-  <p>Ecco una selezione di prodotti nerd imperdibili! Ogni settimana ne aggiungiamo di nuovi.</p>
+        <!-- Box 2: Carte -->
+        <a href="carte.html" class="hub-box magenta">
+          <h3>Carte Collezionabili</h3>
+          <p>Valutazioni, notizie e novità dal mondo Pokémon e Magic.</p>
+        </a>
 
-  <!-- Contenitore dei prodotti -->
-  <div class="top5-container">
+        <!-- Box 3: Tool -->
+        <a href="tool.html" class="hub-box giallo">
+          <h3>Strumenti</h3>
+          <p>Calcolatori, convertitori e altre utility per nerd e maker.</p>
+        </a>
 
-    <!-- Prodotto 1 -->
-    <div class="top5-item ciano">
-      <img src="img/prodotto1.jpg" alt="Mini console retro" />
-      <h3>Mini Console Retro</h3>
-      <p>Gioca ovunque ai tuoi titoli preferiti anni '90. Formato tascabile, batteria lunga durata.</p>
-      <a href="#" class="btn-offerta">Vai all'offerta</a>
-    </div>
+        <!-- Box 4: Articoli -->
+        <a href="articoli.html" class="hub-box nero">
+          <h3>Articoli</h3>
+          <p>Guide e contenuti sempreverdi su tech e cultura pop.</p>
+        </a>
 
-    <!-- Prodotto 2 -->
-    <div class="top5-item magenta">
-      <img src="img/prodotto2.jpg" alt="Lampada Tetris" />
-      <h3>Lampada Tetris</h3>
-      <p>Componi i tuoi pezzi! Ogni blocco si illumina quando lo tocchi. Da scrivania o comodino.</p>
-      <a href="#" class="btn-offerta">Vai all'offerta</a>
-    </div>
+      </div>
+    </section>
+  </main>
 
-    <!-- Prodotto 3 -->
-    <div class="top5-item giallo">
-      <img src="img/prodotto3.jpg" alt="Tazza Game Over" />
-      <h3>Tazza Game Over</h3>
-      <p>Cambia colore col calore! Perfetta per nerd nostalgici e collezionisti.</p>
-      <a href="#" class="btn-offerta">Vai all'offerta</a>
-    </div>
-
-    <!-- Prodotto 4 -->
-    <div class="top5-item nero">
-      <img src="img/prodotto4.jpg" alt="Kit Arduino Starter" />
-      <h3>Kit Arduino Starter</h3>
-      <p>Impara l’elettronica partendo da zero. Perfetto anche per studenti e maker!</p>
-      <a href="#" class="btn-offerta">Vai all'offerta</a>
-    </div>
-
-    <!-- Prodotto 5 -->
-    <div class="top5-item viola">
-      <img src="img/prodotto5.jpg" alt="Supporto stampante 3D" />
-      <h3>Supporto per 3D Print</h3>
-      <p>Organizza i tuoi strumenti e bobine. Ideale per il tuo laboratorio domestico.</p>
-      <a href="#" class="btn-offerta">Vai all'offerta</a>
-    </div>
-
-  </div>
-</section>
-
-
-  <!-- Sezione Tool -->
-  <section id="tool">
-    <h2><i class="fas fa-wrench"></i> Strumenti Utili</h2>
-    <p>Prossimamente tool per YouTube, meteo, analisi prezzi e altro.</p>
-  </section>
-
-  <!-- Sezione Personalizzazione Notizie -->
-  <section id="notizie-personalizzate">
-    <h2><i class="fas fa-sliders-h"></i> Personalizza le Notizie</h2>
-    <p>Scegli gli argomenti che vuoi vedere sul sito:</p>
-
-    <!-- Modulo con checkbox -->
-    <form id="scelta-notizie">
-      <label><input type="checkbox" name="categoria" value="tech"> Tecnologia</label><br>
-      <label><input type="checkbox" name="categoria" value="giochi"> Videogiochi</label><br>
-      <label><input type="checkbox" name="categoria" value="carte"> Carte collezionabili</label><br>
-      <label><input type="checkbox" name="categoria" value="offerte"> Offerte</label><br><br>
-      <button type="button" onclick="mostraNotizie()">Mostra Notizie</button>
-    </form>
-
-    <!-- Contenitore per le notizie -->
-    <div id="risultati-notizie"></div>
-  </section>
-
-  <!-- Piè di pagina -->
+  <!-- Footer semplice e minimale -->
   <footer>
-    <p>&copy; 2025 Pikaslab - Tutti i diritti riservati.</p>
+    <p>&copy; 2025 Pikaslab - Progetto personale senza pretese, ma con passione.</p>
   </footer>
-
-  <!-- Script JS per personalizzazione -->
-  <script>
-    // Funzione chiamata al clic su "Mostra Notizie"
-    function mostraNotizie() {
-      const selezionate = Array.from(document.querySelectorAll('input[name="categoria"]:checked'))
-                                .map(cb => cb.value);
-      localStorage.setItem('categoriePreferite', JSON.stringify(selezionate));
-      caricaNotizieDaJSON();
-    }
-
-    // Carica le notizie filtrate da notizie.json
-    async function caricaNotizieDaJSON() {
-      try {
-        const response = await fetch("data/notizie.json");
-        const notizie = await response.json();
-        const categorie = JSON.parse(localStorage.getItem('categoriePreferite')) || [];
-        const container = document.getElementById("risultati-notizie");
-        container.innerHTML = "";
-
-        if (categorie.length === 0) {
-          container.innerHTML = "<p>Nessuna categoria selezionata.</p>";
-          return;
-        }
-
-        const filtrate = notizie.filter(n => categorie.includes(n.categoria));
-
-        if (filtrate.length === 0) {
-          container.innerHTML = "<p>Nessuna notizia trovata per le categorie selezionate.</p>";
-          return;
-        }
-
-        filtrate.forEach(n => {
-          const articolo = document.createElement("div");
-          articolo.innerHTML = `<h3>${n.titolo}</h3><p><small>${n.data}</small> – <a href="${n.link}">Leggi di più</a></p>`;
-          container.appendChild(articolo);
-        });
-
-      } catch (error) {
-        console.error("Errore nel caricamento notizie:", error);
-        document.getElementById("risultati-notizie").innerHTML = "<p>Errore nel caricamento delle notizie.</p>";
-      }
-    }
-
-    // Carica le preferenze salvate e mostra le notizie se presenti
-    function aggiornaNotizie() {
-      const salvate = JSON.parse(localStorage.getItem('categoriePreferite')) || [];
-      document.querySelectorAll('input[name="categoria"]').forEach(cb => {
-        cb.checked = salvate.includes(cb.value);
-      });
-      if (salvate.length > 0) {
-        caricaNotizieDaJSON();
-      }
-    }
-
-    // Avvia la funzione al caricamento della pagina
-    window.addEventListener('DOMContentLoaded', aggiornaNotizie);
-  </script>
 </body>
 </html>
