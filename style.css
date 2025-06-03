@@ -1,176 +1,155 @@
-/* Impostazioni di base del corpo del sito */
-body {
-  font-family: 'Verdana', sans-serif; /* Font leggibile ma più squadrato/pop di Arial */
-  background-color: #fefefe;          /* Sfondo bianco quasi puro */
-  color: #222;                        /* Colore testo principale */
+/* ===========================
+   STILE BASE E GENERALE
+   =========================== */
+
+* {
+  box-sizing: border-box; /* Garantisce che padding e border non aumentino la larghezza degli elementi */
   margin: 0;
   padding: 0;
 }
 
-/* Intestazione principale con colore ciano */
-header {
-  background: linear-gradient(to right, #00bcd4, #2196f3); /* sfumatura tra ciano chiaro e blu */
-  color: white;
-  padding: 30px 20px;
-  text-align: center;
-  border-bottom: 5px solid #ffeb3b;  /* bordo giallo acceso */
+body {
+  font-family: 'Inter', sans-serif; /* Font moderno e leggibile */
+  background-color: #ffffff;        /* Sfondo bianco pulito */
+  color: #222222;                   /* Testo scuro per alta leggibilità */
+  line-height: 1.6;                 /* Spaziatura verticale armoniosa */
 }
 
-/* Menu di navigazione con effetto CMYK */
+/* ===========================
+   HEADER E MENU DI NAVIGAZIONE
+   =========================== */
+
+header {
+  border-bottom: 1px solid #eee;    /* Separatore sottile */
+  padding: 20px 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;  /* Logo a sinistra, menu a destra */
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #000000;
+}
+
 nav ul {
   list-style: none;
-  padding: 0;
-  margin: 15px 0 0 0;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;                  /* su mobile va a capo */
-  gap: 25px;
-  background-color: #000;          /* sfondo nero stile stampa */
+  gap: 20px;
 }
 
 nav a {
-  color: #fff;
   text-decoration: none;
-  font-weight: bold;
-  padding: 10px 15px;
-  border-radius: 6px;
-  transition: background 0.3s;
+  color: #222;
+  font-weight: 500;
+  transition: color 0.2s;
 }
 
 nav a:hover {
-  background-color: #ff00c8;       /* magenta pieno all'hover */
+  color: #ff00c8; /* Magenta acceso al passaggio del mouse */
 }
 
-/* Sezioni principali */
-section {
-  padding: 40px 20px;
-  border-bottom: 3px dotted #ddd;  /* linea tratteggiata vintage */
-}
+/* ===========================
+   HERO / INTRO CENTRALE
+   =========================== */
 
-/* Titoli delle sezioni con colore a rotazione */
-section:nth-of-type(1) h2 { color: #00bcd4; } /* Ciano */
-section:nth-of-type(2) h2 { color: #ff00c8; } /* Magenta */
-section:nth-of-type(3) h2 { color: #ffeb3b; } /* Giallo */
-section:nth-of-type(4) h2 { color: #000000; } /* Nero */
-section:nth-of-type(5) h2 { color: #673ab7; } /* Colore di supporto viola */
-
-h2 i {
-  margin-right: 8px;
-}
-
-/* Piè di pagina */
-footer {
-  background-color: #000;     /* Sfondo nero */
-  color: #fff;
+.hero {
   text-align: center;
-  padding: 20px;
-  font-size: 0.9em;
+  padding: 60px 20px 40px 20px;
 }
 
-/* Sezione Personalizzazione */
-#notizie-personalizzate {
-  background-color: #fff3cd;  /* Giallo tenue */
-  padding: 40px 20px;
-  border-top: 3px dashed #ffeb3b;
-  border-bottom: 3px dashed #000;
-}
-
-/* Modulo personalizzazione */
-#scelta-notizie label {
-  display: block;
+.hero h2 {
+  font-size: 2.5rem;
   margin-bottom: 10px;
-  font-weight: bold;
-  cursor: pointer;
+  color: #000000;
 }
 
-/* Pulsante di invio */
-#scelta-notizie button {
-  background-color: #ff00c8;
-  color: #fff;
-  border: none;
-  padding: 10px 25px;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
+.hero p {
+  font-size: 1.1rem;
+  color: #555555;
 }
 
-#scelta-notizie button:hover {
-  background-color: #d600a4;
-}
+/* ===========================
+   SEZIONE HUB CON BOX
+   =========================== */
 
-/* Responsive */
-@media (max-width: 600px) {
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  section {
-    padding: 20px 10px;
-  }
-
-  /* Sezione Top 5 - Contenitore generale */
-#top5 {
+.hub {
   padding: 40px 20px;
-  background-color: #f0f0f0;
-  text-align: center;
 }
 
-/* Contenitore flessibile dei 5 elementi */
-.top5-container {
-  display: flex;
-  flex-wrap: wrap;            /* Va a capo se non c'è spazio */
-  gap: 20px;
-  justify-content: center;
-  margin-top: 20px;
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-/* Stile comune per ogni prodotto */
-.top5-item {
-  width: 250px;
+.hub-box {
+  padding: 30px 20px;
   border-radius: 12px;
-  padding: 20px;
-  color: #fff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  transition: transform 0.3s;
-}
-
-.top5-item:hover {
-  transform: scale(1.03);     /* Effetto zoom al passaggio */
-}
-
-.top5-item img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 15px;
-}
-
-/* Bottoni */
-.btn-offerta {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 15px;
-  background-color: #000;
-  color: #fff;
+  color: white;
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 6px;
-  transition: background 0.3s;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.btn-offerta:hover {
+.hub-box:hover {
+  transform: scale(1.03);
+}
+
+/* ===========================
+   COLORI CMYK PERSONALIZZATI
+   =========================== */
+
+.ciano {
+  background-color: #00bcd4;
+}
+
+.magenta {
   background-color: #ff00c8;
 }
 
-/* Colori personalizzati per ogni box */
-.top5-item.ciano   { background-color: #00bcd4; }
-.top5-item.magenta { background-color: #ff00c8; }
-.top5-item.giallo  { background-color: #ffeb3b; color: #000; }  /* Testo nero per leggibilità */
-.top5-item.nero    { background-color: #333; }
-.top5-item.viola   { background-color: #673ab7; }
+.giallo {
+  background-color: #ffeb3b;
+  color: #000000; /* testo scuro per contrasto sul giallo */
+}
 
-  #scelta-notizie button {
-    width: 100%;
+.nero {
+  background-color: #333333;
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #777;
+  background-color: #fafafa;
+  border-top: 1px solid #eee;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+
+@media (max-width: 600px) {
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
   }
 }
+
