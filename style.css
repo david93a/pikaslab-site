@@ -1,96 +1,108 @@
-/* Impostazioni di base per tutto il sito */
+/* Impostazioni di base del corpo del sito */
 body {
-  font-family: Arial, sans-serif; /* Font leggibile */
-  background-color: #f9f9f9;      /* Sfondo grigio chiaro */
-  color: #333;                    /* Testo grigio scuro */
-  margin: 0;                      /* Nessun margine attorno alla pagina */
+  font-family: 'Verdana', sans-serif; /* Font leggibile ma più squadrato/pop di Arial */
+  background-color: #fefefe;          /* Sfondo bianco quasi puro */
+  color: #222;                        /* Colore testo principale */
+  margin: 0;
   padding: 0;
 }
 
-/* Intestazione del sito */
+/* Intestazione principale con colore ciano */
 header {
-  background-color: #ffe600;     /* Giallo tipo Pikachu */
-  color: #000;                   /* Testo nero */
-  padding: 20px;
+  background: linear-gradient(to right, #00bcd4, #2196f3); /* sfumatura tra ciano chiaro e blu */
+  color: white;
+  padding: 30px 20px;
   text-align: center;
+  border-bottom: 5px solid #ffeb3b;  /* bordo giallo acceso */
 }
 
-/* Menu di navigazione */
+/* Menu di navigazione con effetto CMYK */
 nav ul {
-  list-style-type: none;         /* Rimuove i puntini dell'elenco */
+  list-style: none;
   padding: 0;
-  margin: 10px 0 0 0;
-  display: flex;                 /* Disposizione orizzontale */
-  justify-content: center;      /* Centra gli elementi */
-  gap: 20px;                     /* Spazio tra link */
+  margin: 15px 0 0 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;                  /* su mobile va a capo */
+  gap: 25px;
+  background-color: #000;          /* sfondo nero stile stampa */
 }
 
 nav a {
-  text-decoration: none;         /* Rimuove sottolineatura */
-  color: #000;
+  color: #fff;
+  text-decoration: none;
   font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: background 0.3s;
 }
 
 nav a:hover {
-  color: #e60000;                /* Colore rosso al passaggio del mouse */
+  background-color: #ff00c8;       /* magenta pieno all'hover */
 }
 
 /* Sezioni principali */
 section {
   padding: 40px 20px;
-  border-bottom: 1px solid #ddd; /* Riga divisoria sotto ogni sezione */
+  border-bottom: 3px dotted #ddd;  /* linea tratteggiata vintage */
 }
 
-/* Titoli delle sezioni */
-section h2 {
-  color: #444;
+/* Titoli delle sezioni con colore a rotazione */
+section:nth-of-type(1) h2 { color: #00bcd4; } /* Ciano */
+section:nth-of-type(2) h2 { color: #ff00c8; } /* Magenta */
+section:nth-of-type(3) h2 { color: #ffeb3b; } /* Giallo */
+section:nth-of-type(4) h2 { color: #000000; } /* Nero */
+section:nth-of-type(5) h2 { color: #673ab7; } /* Colore di supporto viola */
+
+h2 i {
+  margin-right: 8px;
 }
 
 /* Piè di pagina */
 footer {
-  background-color: #222;       /* Sfondo scuro */
-  color: #fff;                  /* Testo chiaro */
+  background-color: #000;     /* Sfondo nero */
+  color: #fff;
   text-align: center;
-  padding: 15px;
+  padding: 20px;
+  font-size: 0.9em;
 }
 
-/* Sezione personalizzazione notizie */
+/* Sezione Personalizzazione */
 #notizie-personalizzate {
-  background-color: #fff3cd;    /* Giallo chiaro per evidenziare */
+  background-color: #fff3cd;  /* Giallo tenue */
   padding: 40px 20px;
-  border-top: 2px solid #ffe600;
-  border-bottom: 2px solid #000;
+  border-top: 3px dashed #ffeb3b;
+  border-bottom: 3px dashed #000;
 }
 
-#notizie-personalizzate h3 {
-  color: #000;
-  margin-top: 20px;
-}
-
-/* Form checkbox per personalizzazione */
+/* Modulo personalizzazione */
 #scelta-notizie label {
-  display: block;              /* Ogni opzione su una riga */
-  margin-bottom: 8px;
-  cursor: pointer;
-}
-
-/* Pulsante */
-#scelta-notizie button {
-  background-color: #ffe600;
-  border: none;
-  padding: 10px 20px;
+  display: block;
+  margin-bottom: 10px;
   font-weight: bold;
   cursor: pointer;
 }
 
-#scelta-notizie button:hover {
-  background-color: #ffcc00;
+/* Pulsante di invio */
+#scelta-notizie button {
+  background-color: #ff00c8;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-/* Responsive per schermi piccoli */
+#scelta-notizie button:hover {
+  background-color: #d600a4;
+}
+
+/* Responsive */
 @media (max-width: 600px) {
   nav ul {
-    flex-direction: column;     /* Link verticali su schermi piccoli */
+    flex-direction: column;
     gap: 10px;
   }
 
@@ -99,6 +111,6 @@ footer {
   }
 
   #scelta-notizie button {
-    width: 100%;               /* Pulsante grande su mobile */
+    width: 100%;
   }
 }
