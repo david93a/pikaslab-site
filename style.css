@@ -110,6 +110,66 @@ footer {
     padding: 20px 10px;
   }
 
+  /* Sezione Top 5 - Contenitore generale */
+#top5 {
+  padding: 40px 20px;
+  background-color: #f0f0f0;
+  text-align: center;
+}
+
+/* Contenitore flessibile dei 5 elementi */
+.top5-container {
+  display: flex;
+  flex-wrap: wrap;            /* Va a capo se non c'è spazio */
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Stile comune per ogni prodotto */
+.top5-item {
+  width: 250px;
+  border-radius: 12px;
+  padding: 20px;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: transform 0.3s;
+}
+
+.top5-item:hover {
+  transform: scale(1.03);     /* Effetto zoom al passaggio */
+}
+
+.top5-item img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Bottoni */
+.btn-offerta {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.btn-offerta:hover {
+  background-color: #ff00c8;
+}
+
+/* Colori personalizzati per ogni box */
+.top5-item.ciano   { background-color: #00bcd4; }
+.top5-item.magenta { background-color: #ff00c8; }
+.top5-item.giallo  { background-color: #ffeb3b; color: #000; }  /* Testo nero per leggibilità */
+.top5-item.nero    { background-color: #333; }
+.top5-item.viola   { background-color: #673ab7; }
+
   #scelta-notizie button {
     width: 100%;
   }
