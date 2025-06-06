@@ -1,155 +1,148 @@
-/* ===========================
-   STILE BASE E GENERALE
-   =========================== */
+/*
+  Foglio di stile base per Pikaslab.it - versione POP CMYK
+  Commentato riga per riga per aiutarti a capire ogni regola
+*/
 
-* {
-  box-sizing: border-box; /* Garantisce che padding e border non aumentino la larghezza degli elementi */
+/* Impostazioni generali per il body */
+body {
   margin: 0;
   padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  color: #111;
+  line-height: 1.6;
 }
 
-body {
-  font-family: 'Inter', sans-serif; /* Font moderno e leggibile */
-  background-color: #ffffff;        /* Sfondo bianco pulito */
-  color: #222222;                   /* Testo scuro per alta leggibilità */
-  line-height: 1.6;                 /* Spaziatura verticale armoniosa */
-}
-
-/* ===========================
-   HEADER E MENU DI NAVIGAZIONE
-   =========================== */
-
+/* Intestazione principale */
 header {
-  border-bottom: 1px solid #eee;    /* Separatore sottile */
-  padding: 20px 0;
+  background: linear-gradient(90deg, cyan, magenta, yellow);
+  color: black;
+  padding: 1.5rem;
+  text-align: center;
+  font-weight: bold;
 }
 
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;  /* Logo a sinistra, menu a destra */
-  align-items: center;
-}
-
-.logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #000000;
+/* Navigazione orizzontale con sfondo nero */
+nav {
+  background-color: #111;
+  padding: 0.5rem;
+  text-align: center;
 }
 
 nav ul {
   list-style: none;
-  display: flex;
-  gap: 20px;
+  padding: 0;
+  margin: 0;
 }
 
-nav a {
-  text-decoration: none;
-  color: #222;
-  font-weight: 500;
-  transition: color 0.2s;
+nav ul li {
+  display: inline-block;
+  margin: 0 1rem;
 }
 
-nav a:hover {
-  color: #ff00c8; /* Magenta acceso al passaggio del mouse */
-}
-
-/* ===========================
-   HERO / INTRO CENTRALE
-   =========================== */
-
-.hero {
-  text-align: center;
-  padding: 60px 20px 40px 20px;
-}
-
-.hero h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  color: #000000;
-}
-
-.hero p {
-  font-size: 1.1rem;
-  color: #555555;
-}
-
-/* ===========================
-   SEZIONE HUB CON BOX
-   =========================== */
-
-.hub {
-  padding: 40px 20px;
-}
-
-.hub-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.hub-box {
-  padding: 30px 20px;
-  border-radius: 12px;
+nav ul li a {
   color: white;
   text-decoration: none;
-  transition: transform 0.2s;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-weight: bold;
 }
 
-.hub-box:hover {
-  transform: scale(1.03);
+nav ul li a:hover {
+  color: cyan;
 }
 
-/* ===========================
-   COLORI CMYK PERSONALIZZATI
-   =========================== */
-
-.ciano {
-  background-color: #00bcd4;
+/* Sezioni del contenuto */
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
-.magenta {
-  background-color: #ff00c8;
+section {
+  margin-bottom: 2.5rem;
+  padding: 1rem;
+  border-left: 8px solid magenta;
+  background-color: #f9f9f9;
 }
 
-.giallo {
-  background-color: #ffeb3b;
-  color: #000000; /* testo scuro per contrasto sul giallo */
+section.cmyk {
+  border-left-color: cyan;
 }
 
-.nero {
-  background-color: #333333;
+/* Titoli delle sezioni */
+h2, h3 {
+  color: #000;
+  margin-top: 0;
 }
 
-/* ===========================
-   FOOTER
-   =========================== */
+/* Liste con simboli */
+ul {
+  padding-left: 1.2rem;
+}
 
+/* Footer */
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 1rem;
+  background-color: #000;
+  color: #fff;
   font-size: 0.9rem;
-  color: #777;
-  background-color: #fafafa;
-  border-top: 1px solid #eee;
 }
 
-/* ===========================
-   RESPONSIVE
-   =========================== */
-
-@media (max-width: 600px) {
-  .hero h2 {
-    font-size: 1.8rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
+/* Link speciali (es. bottone) */
+.pulsante-link {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: yellow;
+  color: black;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid black;
+  border-radius: 6px;
+  transition: background-color 0.3s;
 }
+
+.pulsante-link:hover {
+  background-color: magenta;
+  color: white;
+}
+
+/* Scheda recensione in grid futura (placeholder) */
+.recensioni-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.scheda-prodotto {
+  background: #fff;
+  border: 2px solid cyan;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+.scheda-prodotto img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.scheda-prodotto h2 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.scheda-prodotto p {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.scheda-prodotto a {
+  text-decoration: none;
+  color: inherit;
+}
+
 
